@@ -2,7 +2,7 @@ defmodule DirWalker.Mixfile do
   use Mix.Project
 
   @moduledoc """
-  DirWalker lazily traverses one or more directory trees, depth first, 
+  DirWalker lazily traverses one or more directory trees, depth first,
   returning successive file names.
 
   Initialize the walker using
@@ -14,9 +14,9 @@ defmodule DirWalker.Mixfile do
       paths = DirWalker.next(walker <, n \\ 1>)
 
   Successive calls to `next` will return successive file names, until
-  all file names have been returned. 
+  all file names have been returned.
 
-  These methods have also been wrapped into a Stream resource. 
+  These methods have also been wrapped into a Stream resource.
 
        paths = DirWalker.stream(path) # or [path,path...]
 
@@ -27,9 +27,9 @@ defmodule DirWalker.Mixfile do
       app:         :dir_walker,
       version:     "0.0.5",
       elixir:      ">= 1.0.0",
-      deps:        deps,
+      deps:        deps(),
       description: @moduledoc,
-      package:     package
+      package:     package()
     ]
   end
 
@@ -48,9 +48,9 @@ defmodule DirWalker.Mixfile do
     ]
   end
 
-  def deps do 
-   [{:earmark, "~> 0.1", only: :dev},
-     {:ex_doc, "~> 0.5", only: :dev}]
-  end 
+  def deps do
+   [{:earmark, "~> 1.2", only: :dev},
+     {:ex_doc, "~> 0.15", only: :dev}]
+  end
 
 end
